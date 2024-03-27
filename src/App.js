@@ -1,7 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import ecc from "eosjs-ecc";
+import { useEffect } from 'react';
+
 
 function App() {
+
+  function initKeys(key) {
+    devugger;
+    const privateEncryptionKey = ecc.PrivateKey.fromSeed(key);
+    const privateKey = privateEncryptionKey.toString();
+
+    const publicEncryptionKey = privateEncryptionKey.toPublic();
+    const publicKey = publicEncryptionKey.toString().replace('EOS', '');
+
+    console.log({ privateKey, publicKey })
+
+    return { privateKey, publicKey };
+}
+
+useEffect(() => {
+  initKeys('wax.gd.d')
+},[])
   return (
     <div className="App">
       <header className="App-header">
