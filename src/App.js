@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 function App() {
 
   function initKeys(key) {
-    devugger;
     const privateEncryptionKey = ecc.PrivateKey.fromSeed(key);
     const privateKey = privateEncryptionKey.toString();
 
